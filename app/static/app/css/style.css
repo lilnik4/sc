@@ -1,0 +1,106 @@
+.bg-gr-main {
+    background-color : #15805e !important;
+}
+.bg-gr-alt {
+    background-color : #189670 !important;
+}
+.bg-yl-main {
+    background-color : #ffe418 !important;
+}
+.bg-smoke {
+    background-color : #f2f8f6 !important;
+}
+.bg-gray {
+    background-color : #292929 !important;
+}
+
+
+.tx-gr-main {
+    color : #15805e !important;
+}
+.tx-gr-alt {
+    color : #189670 !important;
+}
+.tx-yl-main {
+    color : #ffe418 !important;
+}
+.tx-smoke {
+   color : #f2f8f6 !important;
+}
+.tx-gray {
+    color : #292929 !important;
+}
+
+
+
+
+@font-face {
+    font-family: 'IRANYekanWeb-Light';
+    src: url('../fonts/yekan_light/IRANYekanWeb-Light.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/yekan_light/IRANYekanWeb-Light.woff') format('woff'),
+     url('../fonts/yekan_light/IRANYekanWeb-Light.ttf')  format('truetype'),
+     url('../fonts/yekan_light/IRANYekanWeb-Light.svg#IRANYekanWeb-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+  @font-face {
+    font-family: 'IRANYekanWeb';
+    src: url('../fonts/yekan/IRANYekanWeb.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/yekan/IRANYekanWeb.woff') format('woff'),
+    url('../fonts/yekan/IRANYekanWeb.ttf')  format('truetype'),
+    url('../fonts/yekan/IRANYekanWeb.svg#IRANYekanWeb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body{
+    font-family: 'IRANYekanWeb'!important;
+    text-align: right !important;
+}
+
+
+.brrr{
+    border-radius: 25px 25px 0px 0px !important;
+}
+
+.card-action:last-child {
+     border-radius: 0px 0px 25px 25px !important;
+    padding: 3px !important;
+    margin-top: 10px !important;
+}
+
+.card-title{
+    padding-top: 5px;
+     border-radius: 25px 25px 0px 0px !important;
+
+}
+
+.bttt{
+    border-radius: 25px !important;
+}
+
+
+.bggg {
+    background-color: #292929;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.35' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.marg{
+    margin-top: 10%;
+}
+
+.dirr:after{
+    text-align: right !important;
+}
+
+td, th {
+    padding: 5px 5px !important;
+    text-align: center !important;
+}
+
+
+.input-field > label{
+    font-size: 8px !important;
+}
