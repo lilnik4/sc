@@ -1,33 +1,9 @@
-<!DOCTYPE html>
+{% extends 'app/base.html' %}
 {% load static %}
-<html lang="fa" dir="rtl">
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="{% static 'app/css/materialize.css' %}"  media="screen,projection"/>
-  <link rel="stylesheet" href="{% static 'app/css/style.css' %}" type="text/css">
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="نتیجه رو حدس بزنید و برنده 500000 ریال بانس رایگان پیشبینی">
-  <title>PinScore | پین اسکور</title>
-</head>
-
-<body class="" style="background-image: url('{% static 'app/img/pin-jackpot-pageskin-ir.jpg' %}');background-size: cover;">
-<!--section navbar-->
-{#  <nav>#}
-{#    <div class="nav-wrapper bg-gr-main ">#}
-{#      <a href="#" class="brand-logo center"><img src="{% static 'app/img/logo.png' %}"></a>#}
-{#    </div>#}
-{#  </nav>#}
-
-
-
-<!--section text place-->
-
-<div class="container marg">
+{% block content %}
+<div class="container">
     <div class="row">
-        <div class="col l6 offset-l3 m8 offset-m2  s10 offset-s1 ">
+        <div class="col l6 offset-l3 m8 offset-m2  s12 ">
           <div class="card bg-gray darken-1 brrr hoverable">
             <div class="card-title bg-gr-main center center-align">
                 <img src="{% static 'app/img/logo.png' %}">
@@ -77,7 +53,7 @@
 
             </div>
               <div class="center-align center">
-                <a href="#" class="tx-gr-alt bg-yl-main center-align btn btn-large bttt">ثبت حدس پیشبینی</a>
+                <a href="#" class="tx-gr-alt bg-yl-main center-align btn btn-large bttt pulse">ثبت حدس پیشبینی</a>
                   <br>
                   <br>
                   <!-- Modal Trigger -->
@@ -105,93 +81,4 @@
         </div>
     </div>
 </div>
-<br>
-
-
-
-<div class="container">
-  <div class="row">
-
-
-      <div class="col m4 offset-m4 s6 offset-">
-
-
-      </div>
-  </div>
-</div>
-
-
-{#<div class="container" >#}
-{#    <div class="row">#}
-{#        <div class="col m8 s12 offset-m2">#}
-{#             <table class="highlight card  center-align center dirr">#}
-{#                <thead class="center-align center bg-gr-alt tx-gray dirr">#}
-{#                    <tr>#}
-{#                        <th>ساعت</th>#}
-{#                        <th>نام کاربری</th>#}
-{#                        <th>حدس نتیجه تیم1</th>#}
-{#                        <th>حدس نتیجه تیم2</th>#}
-{#                    </tr>#}
-{#                </thead>#}
-{##}
-{#                 <tbody class="dirr">#}
-{#                    <tr>#}
-{#                        <td> 14:35</td>#}
-{#                        <td> lil </td>#}
-{#                        <td> 2 </td>#}
-{#                        <td> 3 </td>#}
-{#                    </tr>#}
-{#                    <tr>#}
-{#                        <td> 14:35</td>#}
-{#                        <td> lil </td>#}
-{#                        <td> 2 </td>#}
-{#                        <td> 3 </td>#}
-{#                    </tr>#}
-{#                 </tbody>#}
-{#            </table>#}
-{#        </div>#}
-{#    </div>#}
-{#</div>#}
-<!--section footer-->
-
-   <footer class="page-footer bg-gray marg">
-         <div class="row center">
-
-             <div class="col l12  s12 center-align center">
-      <img src="{% static 'app/img/ig.png' %}" alt="" class="responsive-img">
-      <img src="{% static 'app/img/fb.png' %}" alt="" class="responsive-img">
-      <img src="{% static 'app/img/tele.png' %}" alt="" class="responsive-img">
-      <img src="{% static 'app/img/tw.png' %}" alt="" class="responsive-img">
-              <img src="{% static 'app/img/yt.png' %}" alt="" class="responsive-img">
-
-
-    </div>
-
-
- <div class="center center-align">
-              <img src="{% static 'app/img/940-opt.gif' %}" alt="" class="responsive-img">
-         </div>
-    </footer>
-
-
-
-  <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="{% static 'app/js/materialize.js' %}"></script>
-
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-      M.AutoInit();
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.modal');
-    var instances = M.Modal.init(elems, options);
-  });
-
-
-</script>
-</body>
-</html>
+<br>{% endblock content %}

@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q+@4aj%vwkrhfjpppuh0a=c3so^a$eewt&*sb5d_uov!98(ali'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pinscore.live', 'www.pinscore.live']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -80,3 +80,5 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+

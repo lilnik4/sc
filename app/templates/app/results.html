@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container" >
+    <div class="row">
+        <div class="col m8 s12 offset-m2">
+             <table class="highlight card  center-align center dirr">
+                <thead class="center-align center bg-gr-alt tx-gray dirr">
+                    <tr>
+                        <th>ساعت</th>
+                        <th>نام کاربری</th>
+                        <th>حدس نتیجه تیم1</th>
+                        <th>حدس نتیجه تیم2</th>
+                    </tr>
+                </thead>
+
+                 <tbody class="dirr">
+                    <tr>
+                        <td> 14:35</td>
+                        <td> lil </td>
+                        <td> 2 </td>
+                        <td> 3 </td>
+                    </tr>
+                    <tr>
+                        <td> 14:35</td>
+                        <td> lil </td>
+                        <td> 2 </td>
+                        <td> 3 </td>
+                    </tr>
+                 </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--section footer-->
+
+{% endblock content %}
