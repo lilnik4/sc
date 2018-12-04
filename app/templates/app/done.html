@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col l6 offset-l3 m8 offset-m2  s12 ">
+      <div class="card bg-gray darken-1 brrr hoverable">
+        <div class="card-title bg-gr-main center center-align">
+          <img src="{% static 'app/img/pinlogo.png' %}">
+        </div>
+        <div class="card-content tx-smoke">
+        <p>
+            پیش بینی شما با موفقیت ثبت شد
+پشتیبانی زنده سایت بعد از بررسی و تایید نهایی پیش بینی شما حداکثر ظرف مدت 24 ساعت بانس مربوطه را  به حساب کاربریتان اضافه خواهند کرد . موفق باشید
+        </p>
+
+        </div>
+          <div class="row center-align center">
+                <div class="col s10 offset-s1 center center-align">
+                    <a href="{% url 'result' %}" class="btn bg-gr-main tx-smoke btn-block btn-large"> نتایج ثبت شده </a>
+                    <br>
+                </div>
+                <div class="col s10 offset-s1">
+                  <a href="http://iranpinbahis.com"><img src="{% static 'app/img/720-opt.gif' %}" class="responsive-img"></a>
+                    <br>
+                    <br>
+                </div>
+
+
+          </div>
+
+
+
+
+             <div class="row center">
+
+              <div class="col l12  s12 center-align center">
+                <a href="https://www.instagram.com/pinbahis.iran/"><img src="{% static 'app/img/ig.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://www.facebook.com/Pinbahis-Iran-563404137432082/"><img src="{% static 'app/img/fb.png' %}" alt=""
+                    class="responsive-img"></a>
+                <a href="https://t.me/pinbahis_iran"><img src="{% static 'app/img/tele.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://twitter.com/Pinbahis_iran"><img src="{% static 'app/img/tw.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://www.youtube.com/channel/UCc6698fzOUkPbic__hs2d0w"><img src="{% static 'app/img/yt.png' %}" alt=""
+                    class="responsive-img"></a>
+
+
+              </div>
+
+            </div>
+        <div class="card-action bg-gr-main brrr center-align">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
+
+{% endblock content %}

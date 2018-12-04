@@ -10,24 +10,21 @@
                     <tr>
                         <th>ساعت</th>
                         <th>نام کاربری</th>
-                        <th>حدس نتیجه تیم1</th>
-                        <th>حدس نتیجه تیم2</th>
+                        <th>مجموع گل</th>
+                        <th>مجموع کرنر</th>
                     </tr>
                 </thead>
 
                  <tbody class="dirr">
+                 {% for sub in object_list %}
                     <tr>
-                        <td> 14:35</td>
-                        <td> lil </td>
-                        <td> 2 </td>
-                        <td> 3 </td>
+                        <td> {{ sub.created_at|date:'i' }} : {{ sub.created_at|date:'G' }}</td>
+                        <td> {{ sub.user }} </td>
+                        <td> {{ sub.score_1 }} </td>
+                        <td> {{ sub.score_2 }} </td>
                     </tr>
-                    <tr>
-                        <td> 14:35</td>
-                        <td> lil </td>
-                        <td> 2 </td>
-                        <td> 3 </td>
-                    </tr>
+                 {% endfor %}
+
                  </tbody>
             </table>
         </div>
