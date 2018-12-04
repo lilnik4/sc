@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q+@4aj%vwkrhfjpppuh0a=c3so^a$eewt&*sb5d_uov!98(ali'
 DEBUG = True
-ALLOWED_HOSTS = ['pinscore.live', 'www.pinscore.live','87.236.209.216']
+ALLOWED_HOSTS = ['pinscore.live', 'www.pinscore.live','87.236.209.214', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -13,6 +13,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -80,3 +82,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

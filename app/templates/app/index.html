@@ -1,84 +1,126 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
+
 <div class="container">
-    <div class="row">
-        <div class="col l6 offset-l3 m8 offset-m2  s12 ">
-          <div class="card bg-gray darken-1 brrr hoverable">
-            <div class="card-title bg-gr-main center center-align">
-                <img src="{% static 'app/img/logo.png' %}">
-            </div>
-            <div class="card-content tx-smoke">
-
-
-              <form class="row">
-                  <div class="row">
-
-                      <div class="col s9">
-                            <input id="input_text" type="text" class="tx-smoke bttt center center-align">
-                      </div>
-
-                       <div class="col s3 center-align horizontal">
-                        نام کاربری
-                      </div>
-
-                      </div>
-
-
-              </form>
-
-             <form class="row">
-                 <div class="col s6 center-align center">
-                    اینتر میلان
-                      <div class="input-field ">
-                        <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">
-                        <label for="input_text" class="tx-yl-main">تعداد گل</label>
-                      </div>
-                 </div>
-
-
-                 <div class="col s6 center-align center">
-                     پی‌اس‌وی آیندهوون
-                      <div class="input-field ">
-                        <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">
-                        <label for="input_text" class="tx-yl-main">تعداد گل</label>
-                      </div>
-                 </div>
-
-
-
-              </form>
-
-
-
-            </div>
-              <div class="center-align center">
-                <a href="#" class="tx-gr-alt bg-yl-main center-align btn btn-large bttt pulse">ثبت حدس پیشبینی</a>
-                  <br>
-                  <br>
-                  <!-- Modal Trigger -->
-                  <a class="btn btn-small bg-gr-main tx-smoke bttt modal-trigger" href="#modal1">قوانین دریافت هدیه</a>
-
-                  <!-- Modal Structure -->
-                  <div id="modal1" class="modal">
-                    <div class="modal-content">
-                      <h4>قوانین دریافت هدیه</h4>
-                      <p>
-                          برای به دست آوردن جایزه از این رویداد، باید حداقل یک واریز موفق در سایت ما داشته باشید و آخرین معامله در حسابتان نباید فعالیت رسانه های اجتماعی باشد.مقدار واریز شده به عنوان فری بت معرفی شده است.بعد از شرط بندی با ضریب حداقل 1.90، جایزه به طور اتوماتیک بدون تبدیل به حساب شما منتقل خواهد شد.بانس های رویداد در عرض ۲۴ ساعت بعد از پایان بازی به حساب شما اضافه می شود
-
-                      </p>
-                    </div>
-                    <div class="modal-footer">
-                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">بستن</a>
-                    </div>
-                  </div>
+  <div class="row">
+    <div class="col l6 offset-l3 m8 offset-m2  s12 ">
+      <div class="card bg-gray darken-1 brrr hoverable">
+        <div class="card-title bg-gr-main center center-align">
+          <img src="{% static 'app/img/logo.png' %}">
+        </div>
+        <div class="card-content tx-smoke">
+          {% if match %}
+              <div class="row ">
+                {{ match.body | safe }}
 
               </div>
-            <div class="card-action bg-gr-main brrr center-align">
+
+          <form class="row" method="post" novalidate>
+           {% csrf_token %}
+            <div class="row">
+                {% if form %}
+              <div class="col s9">
+                  <div class="input-field ">
+                    {{ form.user }}
+
+{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
+{#                <label for="input_text" class="tx-yl-main">username</label>#}
+                  </div>
+              </div>
+
+              <div class="col s3 center-align horizontal">
+                نام کاربری
+              </div>
 
             </div>
+
+            <div class="col s6 center-align center">
+              {{match.team2}}
+              <div class="input-field ">
+                  {{ form.score_2 }}
+{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
+                <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
+              </div>
+            </div>
+
+
+            <div class="col s6 center-align center">
+              {{match.team1}}
+              <div class="input-field ">
+                  {{ form.score_1 }}
+{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
+                <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
+              </div>
+            </div>
+
+
+            {% endif %}
+          <div class="center-align center">
+                <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large bttt pulse">ثبت حدس پیشبینی</button>
           </div>
+          </form>
+
         </div>
+
+
+        <div class="center-align center">
+
+          <br>
+          <br>
+          <!-- Modal Trigger -->
+          <a class="btn btn-small bg-gr-main tx-smoke bttt modal-trigger" href="#modal1">قوانین دریافت هدیه</a>
+
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>قوانین دریافت هدیه</h4>
+              <p>
+                برای به دست آوردن جایزه از این رویداد، باید حداقل یک واریز موفق در سایت ما داشته باشید و آخرین معامله
+                در حسابتان نباید فعالیت رسانه های اجتماعی باشد.مقدار واریز شده به عنوان فری بت معرفی شده است.بعد از شرط
+                بندی با ضریب حداقل 1.90، جایزه به طور اتوماتیک بدون تبدیل به حساب شما منتقل خواهد شد.بانس های رویداد در
+                عرض ۲۴ ساعت بعد از پایان بازی به حساب شما اضافه می شود
+
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="modal-close waves-effect waves-green btn-flat">بستن</button>
+            </div>
+          </div>
+          {% else %}
+              <br>
+              <br>
+          <h6 class="center-align">مدت زمان پیش بینی برای این بازی به اتمام رسید</h6>
+              <br>
+              <br>
+           <p class="tx-yl-main">کاربر گرامی برای اطلاع از آخرین بانس های ویژه پیش بینی مسابقات ورزشی روزانه عضو شبکه های اجتماعی پین باهیس شوید</p>
+              <br>
+
+          {% endif %}
+        </div>
+
+        
+             <div class="row center">
+
+              <div class="col l12  s12 center-align center">
+                <a href="https://www.instagram.com/pinbahis.iran/"><img src="{% static 'app/img/ig.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://www.facebook.com/Pinbahis-Iran-563404137432082/"><img src="{% static 'app/img/fb.png' %}" alt=""
+                    class="responsive-img"></a>
+                <a href="https://t.me/pinbahis_iran"><img src="{% static 'app/img/tele.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://twitter.com/Pinbahis_iran"><img src="{% static 'app/img/tw.png' %}" alt="" class="responsive-img"></a>
+                <a href="https://www.youtube.com/channel/UCc6698fzOUkPbic__hs2d0w"><img src="{% static 'app/img/yt.png' %}" alt=""
+                    class="responsive-img"></a>
+
+
+              </div>
+
+            </div>
+        <div class="card-action bg-gr-main brrr center-align">
+
+        </div>
+      </div>
     </div>
+  </div>
+ 
 </div>
 <br>{% endblock content %}

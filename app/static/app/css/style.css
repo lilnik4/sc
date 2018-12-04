@@ -88,7 +88,7 @@ body{
 }
 
 .marg{
-    margin-top: 20%;
+    margin-top: 15%;
 }
 
 .dirr:after{
@@ -103,4 +103,24 @@ td, th {
 
 .input-field > label{
     font-size: 8px !important;
+}
+
+#footer {
+    margin-top: 150px;
+    padding-bottom: 0px;
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+
+.row{
+    margin-bottom: 5px !important;
+}
+
+#body{
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
