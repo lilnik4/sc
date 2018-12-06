@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q+@4aj%vwkrhfjpppuh0a=c3so^a$eewt&*sb5d_uov!98(ali'
 DEBUG = False
-ALLOWED_HOSTS = ['pinscore.live', 'www.pinscore.live','87.236.209.214', '*']
+ALLOWED_HOSTS = ['pinscore.live', 'www.pinscore.live','87.236.209.184', '*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
