@@ -18,20 +18,20 @@
 
           <form class="row" method="post" novalidate>
            {% csrf_token %}
-            <div class="row">
+            <div class="row valign-wrapper">
+
+
                 {% if form %}
+                     <div class="col s3 center-align ">
+                نام کاربری
+              </div>
               <div class="col s9">
                   <div class="input-field ">
                     {{ form.user }}
-
-{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
-{#                <label for="input_text" class="tx-yl-main">username</label>#}
                   </div>
               </div>
 
-              <div class="col s3 center-align horizontal">
-                نام کاربری
-              </div>
+
 
             </div>
 
@@ -39,7 +39,6 @@
               {{match.team2}}
               <div class="input-field ">
                   {{ form.score_2 }}
-{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
                 <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
               </div>
             </div>
@@ -49,7 +48,6 @@
               {{match.team1}}
               <div class="input-field ">
                   {{ form.score_1 }}
-{#                <input id="input_text" type="number" class="tx-smoke bttt center center-align" min="1" max="20">#}
                 <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
               </div>
             </div>
@@ -57,7 +55,7 @@
 
             {% endif %}
           <div class="center-align center">
-                <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large bttt pulse">ثبت حدس پیشبینی</button>
+                <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large ">ثبت حدس پیشبینی</button>
           </div>
           </form>
 
@@ -66,7 +64,8 @@
 
         <div class="center-align center">
           <!-- Modal Trigger -->
-          <a class="btn btn-small bg-gr-main tx-smoke bttt modal-trigger" href="#modal1">قوانین دریافت هدیه</a>
+          <a class="btn btn-small bg-gr-main tx-smoke modal-trigger" href="#modal1">قوانین دریافت هدیه</a>
+              <br>
 
           <!-- Modal Structure -->
           <div id="modal1" class="modal">
@@ -100,6 +99,7 @@
              <div class="row center">
 
               <div class="col l12  s12 center-align center">
+                  <br>
                 <a href="https://www.instagram.com/pinbahis.iran/"><img src="{% static 'app/img/ig.png' %}" alt="" class="responsive-img"></a>
                 <a href="https://www.facebook.com/Pinbahis-Iran-563404137432082/"><img src="{% static 'app/img/fb.png' %}" alt=""
                     class="responsive-img"></a>

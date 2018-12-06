@@ -18,6 +18,15 @@ class RatingView(CreateView):
         context['match'] = Match.objects.filter(active=True).first()
         return context
 
+    def form_valid(self, form):
+        from django.db import IntegrityError
+        try:
+            return super(RatingView, self).form_valid(form)
+        except IntegrityError:
+            from django import forms
+            form.add_error("username", "User already exists")
+            return self.form_invalid(form)
+
 
 class DoneView(TemplateView):
     template_name = 'app/done.html'
