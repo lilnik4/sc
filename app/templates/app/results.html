@@ -4,30 +4,68 @@
 
     <div class="container" >
     <div class="row">
+    {% if match %}
         <div class="col m8 s12 offset-m2">
              <table class="highlight card  center-align center dirr">
                 <thead class="center-align center bg-gr-alt tx-gray dirr">
                     <tr>
                         <th>ساعت</th>
                         <th>نام کاربری</th>
-                        <th>تیم یک</th>
-                        <th>تیم دو</th>
+                        {% for m in match %}
+                        <th>{{ m.team1 }}</th>
+                        <th>{{ m.team2 }}</th>
+                        {% endfor %}
                     </tr>
                 </thead>
 
                  <tbody class="dirr">
-                 {% for sub in object_list %}
+                 {% if rating %}
+                     {% for r in rating %}
                     <tr>
-                        <td> {{ sub.created_at|date:'i' }} : {{ sub.created_at|date:'G' }}</td>
-                        <td> {{ sub.user }} </td>
-                        <td> {{ sub.score_1 }} </td>
-                        <td> {{ sub.score_2 }} </td>
+                        <td> {{ r.created_at|date:'i' }}:{{ r.created_at|date:'G' }}</td>
+                        <td> {{ r.user }} </td>
+                        <td> {{ r.score_1 }} </td>
+                        <td> {{ r.score_2 }} </td>
                     </tr>
-                 {% endfor %}
+                     {% endfor %}
+                 {% endif %}
 
                  </tbody>
             </table>
         </div>
+    {% endif %}
+
+    {% if match2 %}
+        <div class="col m6 s12 offset-m3">
+             <table class="highlight card  center-align center dirr">
+                <thead class="center-align center bg-gr-alt tx-gray dirr">
+                    <tr>
+                        <th>ساعت</th>
+                        <th>نام کاربری</th>
+                        {% for m in match2%}
+                        <th>{{ m.team1 }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+
+                 <tbody class="dirr">
+                 {% if rating2 %}
+                     {% for r in rating %}
+                    <tr>
+                        <td> {{ r.created_at|date:'i' }}:{{ r.created_at|date:'G' }}</td>
+                        <td> {{ r.user }} </td>
+                        <td> {{ r.score_1 }} </td>
+                    </tr>
+                     {% endfor %}
+                 {% endif %}
+
+                 </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+
+
     </div>
 </div>
 <!--section footer-->

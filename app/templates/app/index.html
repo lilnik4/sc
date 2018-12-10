@@ -1,123 +1,187 @@
 {% extends 'app/base.html' %}
 {% load static %}
 {% block content %}
-
 <div class="container">
-  <div class="row">
-    <div class="col l6 offset-l3 m8 offset-m2  s12 ">
-      <div class="card bg-gray darken-1 brrr hoverable">
-        <div class="card-title bg-gr-main center center-align">
-          <img src="{% static 'app/img/pinlogo.png' %}">
-        </div>
-        <div class="card-content tx-smoke">
-          {% if match %}
-              <div class="row ">
-                {{ match.body | safe }}
+<div class="row">
+    <div class="col l6 offset-l3 m8 offset-m2  s12">
+        <div class="card bg-gray darken-1 brrr hoverable">
+       {#---------------------HEADER------------------------#}
+            <div class="card-title bg-gr-main center center-align">
+                <img src="{% static 'app/img/pinlogo2.gif' %}">
+            </div>
+       {#---------------------HEADER------------------------#}
 
-              </div>
-
-          <form class="row" method="post" novalidate>
-           {% csrf_token %}
-            <div class="row valign-wrapper">
-
-
+        {#---------------------match1------------------------#}
+            {% if match %}
+            <div class="card-content tx-smoke">
+            <div class="row">
+                 {{ match.body | safe }}
+            </div>
                 {% if form %}
-                     <div class="col s3 center-align ">
-                نام کاربری
-              </div>
-              <div class="col s9">
-                  <div class="input-field ">
-                    {{ form.user }}
-                  </div>
-              </div>
+                    <form class="row" method="post">
+                    {% csrf_token %}
+                    <div class="row valign-wrapper">
+                        <div class="col s3 center-align ">
+                         نام کاربری
+                        </div>
+                        <div class="col s9">
+                            <div class="input-field ">
+                            {{ form.user }}
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col s6 center-align center">
+                    {{match.team2}}
+                        <div class="input-field ">
+                        {{ form.score_2 }}
+                        <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
+                        </div>
+                    </div>
+                    <div class="col s6 center-align center">
+                    {{match.team1}}
+                        <div class="input-field ">
+                        {{ form.score_1 }}
+                        <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
+                        </div>
+                    </div>
+                    <div class="center-align center">
+                        <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large ">ثبت حدس پیشبینی</button>
+                    </div>
 
+                {% endif %}{# End if Form #}
+                </form>
+                {% if rule %}
+                    <div class="center-align center">
+                        <br>
+                        <a class="btn btn-small bg-gr-main tx-smoke modal-trigger " href="#modal1">قوانین دریافت هدیه</a>
+                        <br>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4 class="tx-gr-main">قوانین دریافت هدیه</h4>
+                                {% if rules %}
+                                <p>
+                                {{ rule.body | safe }}
+                                </p>
+                                {% endif %}
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">بستن</a>
+                            </div>
+                        </div>
+                    </div>
 
+                {% endif %}
+
+            </div>{# Card End #}
+            {% elif match2 %} {# End If Mtach  #}
+            <div class="card-content tx-smoke">
+            <div class="row">
+                 {{ match2.body | safe }}
             </div>
+                {% if form2 %}
+                    <form class="row" method="post">
+                    {% csrf_token %}
+                    <div class="row valign-wrapper">
+                        <div class="col s3 center-align ">
+                         نام کاربری
+                        </div>
+                        <div class="col s9">
+                            <div class="input-field ">
+                            {{ form2.user }}
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col s6 center-align center">
-              {{match.team2}}
-              <div class="input-field ">
-                  {{ form.score_2 }}
-                <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
-              </div>
-            </div>
+                    <div class="col s12 center-align center">
+                    {{match2.team1}}
+                        <div class="input-field ">
+                        {{ form2.score_1 }}
+                        <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
+                        </div>
+                    </div>
+
+                    <div class="center-align center">
+                        <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large ">ثبت حدس پیشبینی</button>
+                    </div>
+
+                {% endif %}{# End if Form #}
+                </form>
+                {% if rule %}
+                    <div class="center-align center">
+                        <br>
+                        <a class="btn btn-small bg-gr-main tx-smoke modal-trigger " href="#modal1">قوانین دریافت هدیه</a>
+                        <br>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4 class="tx-gr-main">قوانین دریافت هدیه</h4>
+                                {% if rules %}
+                                <p>
+                                {{ rule.body | safe }}
+                                </p>
+                                {% endif %}
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">بستن</a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
 
 
-            <div class="col s6 center-align center">
-              {{match.team1}}
-              <div class="input-field ">
-                  {{ form.score_1 }}
-                <label for="input_text" class="tx-yl-main">حدس نتیجه</label>
-              </div>
-            </div>
+            </div>{# Card End #}
+            {% else %}
+                <div class="card-content tx-smoke">
+                <h5 class="center-align center ">مدت زمان پیش بینی برای این بازی به اتمام رسید</h5>
+                    <br>
 
+                <p class="center center-align tx-yl-main">
+کاربر گرامی برای اطلاع از آخرین بانس های ویژه پیش بینی مسابقات ورزشی روزانه عضو شبکه های اجتماعی پین باهیس شوید
+
+                </p>
+                    <br>
+                   <div class="col s10 offset-s1 center center-align">
+                    <a href="http://iranpinbahis.com" class="btn bg-yl-main tx-gr-main btn-block btn-large bttt"> ورود به سایت  </a>
+                    <br>
+                </div>
+
+                </div>
 
             {% endif %}
-          <div class="center-align center">
-                <button type="submit" class="tx-gr-alt bg-yl-main center-align btn btn-large ">ثبت حدس پیشبینی</button>
-          </div>
-          </form>
-
-        </div>
 
 
-        <div class="center-align center">
-          <!-- Modal Trigger -->
-          <a class="btn btn-small bg-gr-main tx-smoke modal-trigger" href="#modal1">قوانین دریافت هدیه</a>
-              <br>
+        {#---------------------match1------------------------#}
 
-          <!-- Modal Structure -->
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>قوانین دریافت هدیه</h4>
-              <p>
-                برای به دست آوردن جایزه از این رویداد، باید حداقل یک واریز موفق در سایت ما داشته باشید و آخرین معامله
-                در حسابتان نباید فعالیت رسانه های اجتماعی باشد.مقدار واریز شده به عنوان فری بت معرفی شده است.بعد از شرط
-                بندی با ضریب حداقل 1.90، جایزه به طور اتوماتیک بدون تبدیل به حساب شما منتقل خواهد شد.بانس های رویداد در
-                عرض ۲۴ ساعت بعد از پایان بازی به حساب شما اضافه می شود
 
-              </p>
-            </div>
-            <div class="modal-footer">
-              <a href="#" class="modal-close waves-effect waves-green btn-flat">بستن</a>
-            </div>
-          </div>
-          {% else %}
-              <br>
-              <br>
-          <h6 class="center-align">مدت زمان پیش بینی برای این بازی به اتمام رسید</h6>
-              <br>
-              <br>
-           <p class="tx-yl-main">کاربر گرامی برای اطلاع از آخرین بانس های ویژه پیش بینی مسابقات ورزشی روزانه عضو شبکه های اجتماعی پین باهیس شوید</p>
-              <br>
 
-          {% endif %}
-        </div>
 
-        
+
+        {#---------------------Footer------------------------#}
              <div class="row center">
 
               <div class="col l12  s12 center-align center">
                   <br>
-                <a href="https://www.instagram.com/pinbahis.iran/"><img src="{% static 'app/img/ig.png' %}" alt="" class="responsive-img"></a>
-                <a href="https://www.facebook.com/Pinbahis-Iran-563404137432082/"><img src="{% static 'app/img/fb.png' %}" alt=""
+                <a href="https://www.instagram.com/pinbahis.iran/"><img src="{% static 'app/img/ig.png' %}" alt="Instagram" class="responsive-img"></a>
+                <a href="https://www.facebook.com/Pinbahis-Iran-563404137432082/"><img src="{% static 'app/img/fb.png' %}" alt="Facebook"
                     class="responsive-img"></a>
-                <a href="https://t.me/pinbahis_iran"><img src="{% static 'app/img/tele.png' %}" alt="" class="responsive-img"></a>
-                <a href="https://twitter.com/Pinbahis_iran"><img src="{% static 'app/img/tw.png' %}" alt="" class="responsive-img"></a>
-                <a href="https://www.youtube.com/channel/UCc6698fzOUkPbic__hs2d0w"><img src="{% static 'app/img/yt.png' %}" alt=""
+                <a href="https://t.me/pinbahis_iran"><img src="{% static 'app/img/tele.png' %}" alt="Telegram" class="responsive-img"></a>
+                <a href="https://twitter.com/Pinbahis_iran"><img src="{% static 'app/img/tw.png' %}" alt="Twitter" class="responsive-img"></a>
+                <a href="https://www.youtube.com/channel/UCc6698fzOUkPbic__hs2d0w"><img src="{% static 'app/img/yt.png' %}" alt="Youtube"
                     class="responsive-img"></a>
-
 
               </div>
-
             </div>
-        <div class="card-action bg-gr-main brrr center-align">
+            <div class="card-action bg-gr-main brrr center-align">
 
-        </div>
-      </div>
-    </div>
-  </div>
- 
-</div>
+        {#---------------------Footer------------------------#}
+        </div> {# Card End #}
+    </div>{# Main Col #}
+</div>{# Main Row #}
+</div><!-- Conrainer end -->
+
+
+
 <br>{% endblock content %}
